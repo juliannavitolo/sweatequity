@@ -390,13 +390,25 @@
     }
     .ep-card.ep-featured {
       grid-column: span 1;
-      background: var(--red);
+      background: url('images/ted-blosser.jpeg') center/cover no-repeat;
       color: var(--cream);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
+    .ep-card.ep-featured::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(17,17,17,0.92) 30%, rgba(17,17,17,0.2) 70%, transparent 100%);
+      pointer-events: none;
+    }
+    .ep-card.ep-featured > * { position: relative; z-index: 1; }
+    .ep-featured-bottom { display: flex; flex-direction: column; }
     .ep-card.ep-featured .ep-number { color: rgba(242,232,217,0.7); }
     .ep-card.ep-featured .ep-role { color: rgba(242,232,217,0.7); }
     .ep-card.ep-featured .ep-quote { color: rgba(242,232,217,0.8); border-color: rgba(242,232,217,0.5); }
-    .ep-card.ep-featured:hover { background: #d13c22; }
+    .ep-card.ep-featured:hover { background: url('images/ted-blosser.jpeg') center/cover no-repeat; }
     .ep-card.ep-featured::before { display: none; }
     /* ---- LISTEN ---- */
     .listen {
@@ -668,14 +680,13 @@
       </a>
     </div>
     <div class="episodes-grid">
-      <a href="https://bit.ly/sweat-equity-pod" target="_blank" class="ep-card ep-featured reveal">
+      <a href="https://open.spotify.com/episode/1aKOTz6abG2sVRFzRUfWRm?si=QOuKpU3EScKbS0Dze9qGHQ" target="_blank" class="ep-card ep-featured reveal">
         <div class="ep-number">Episode 04</div>
-        <div class="ep-photo-wrap">
-          <div class="ep-avatar">T</div>
+        <div class="ep-featured-bottom">
+          <div class="ep-guest">Ted Blosser</div>
+          <div class="ep-role">CEO · WorkRamp</div>
+          <p class="ep-quote">"Those customer meetings were our founder dates. He didn't touch the keyboard for four or five months."</p>
         </div>
-        <div class="ep-guest">Ted Blosser</div>
-        <div class="ep-role">CEO · WorkRamp</div>
-        <p class="ep-quote">"Those customer meetings were our founder dates. He didn't touch the keyboard for four or five months."</p>
       </a>
       <a href="https://bit.ly/sweat-equity-pod" target="_blank" class="ep-card reveal" style="transition-delay:0.1s">
         <div class="ep-number">Episode 03</div>
