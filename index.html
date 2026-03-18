@@ -111,24 +111,14 @@
       opacity: 0.3;
       pointer-events: none;
     }
-    /* Big decorative circle */
-    .hero-circle {
+    .hero-watermark {
       position: absolute;
       width: 520px; height: 520px;
       border-radius: 50%;
-      background: var(--red);
       right: -60px; top: 50%;
       transform: translateY(-50%);
-      opacity: 0.08;
-      pointer-events: none;
-    }
-    .hero-circle-2 {
-      position: absolute;
-      width: 280px; height: 280px;
-      border-radius: 50%;
-      border: 1px solid rgba(232, 69, 42, 0.2);
-      right: 140px; top: 50%;
-      transform: translateY(-50%);
+      object-fit: cover;
+      opacity: 1;
       pointer-events: none;
     }
     .hero-eyebrow {
@@ -407,7 +397,15 @@
     .ep-featured-bottom { display: flex; flex-direction: column; }
     .ep-card.ep-featured .ep-number { color: rgba(242,232,217,0.7); }
     .ep-card.ep-featured .ep-role { color: rgba(242,232,217,0.7); }
-    .ep-card.ep-featured .ep-quote { color: rgba(242,232,217,0.8); border-color: rgba(242,232,217,0.5); }
+    .ep-card.ep-featured .ep-quote {
+      color: rgba(242,232,217,0.8);
+      border-color: rgba(242,232,217,0.5);
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-height: calc(14px * 1.65 * 3);
+    }
     .ep-card.ep-featured:hover { background: url('images/ted-blosser.jpeg') center/cover no-repeat; }
     .ep-card.ep-featured::before { display: none; }
     /* ---- LISTEN ---- */
@@ -616,8 +614,7 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg"></div>
-    <div class="hero-circle"></div>
-    <div class="hero-circle-2"></div>
+    <img src="images/julianna-vitolo.jpeg" alt="" class="hero-watermark">
     <p class="hero-eyebrow">The Founder Journey Podcast</p>
     <h1 class="hero-headline">
       <span class="line-red">sweat</span>
@@ -685,7 +682,7 @@
         <div class="ep-featured-bottom">
           <div class="ep-guest">Ted Blosser</div>
           <div class="ep-role">CEO · WorkRamp</div>
-          <p class="ep-quote">"When I recruited my co-founder, I said, 'Let's just go talk to customers.' He did not touch the keyboard for, no joke, four or five months."</p>
+          <p class="ep-quote">"When I recruited my co-founder, I said, 'Let's just go talk to customers.' Those customer meetings were our founder dates."</p>
         </div>
       </a>
       <a href="https://open.spotify.com/episode/46gWfHrAJhPllqjz4vxnLD" target="_blank" class="ep-card ep-featured reveal" style="transition-delay:0.1s; background-image: url('images/lauren-makler.jpeg');">
