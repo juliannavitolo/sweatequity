@@ -224,10 +224,6 @@
     /* ---- ABOUT ---- */
     .about {
       padding: 120px 48px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
       max-width: 1200px;
       margin: 0 auto;
     }
@@ -477,6 +473,103 @@
       opacity: 1;
       transform: translateY(0);
     }
+    /* ---- CONTACT ---- */
+    .contact {
+      padding: 120px 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-heading {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 4vw, 54px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+    .contact-heading em { font-style: normal; color: var(--red); }
+    .contact-body {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+    .contact-email-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--red);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-top: 20px;
+      transition: gap 0.2s;
+    }
+    .contact-email-link:hover { gap: 14px; }
+    .contact-form {
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .form-group {
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .form-group label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .form-group input,
+    .form-group textarea {
+      background: var(--dark2);
+      border: 1px solid rgba(242,232,217,0.1);
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-size: 15px;
+      padding: 14px 18px;
+      border-radius: 2px;
+      outline: none;
+      transition: border-color 0.2s;
+      resize: none;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(242,232,217,0.25);
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--red);
+    }
+    .form-group textarea { min-height: 140px; }
+    .form-submit {
+      background: var(--red);
+      color: var(--cream);
+      border: none;
+      padding: 16px 32px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      align-self: flex-start;
+    }
+    .form-submit:hover { background: #c93620; transform: translateY(-2px); }
+    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .form-success {
+      display: none;
+      background: rgba(232,69,42,0.1);
+      border: 1px solid rgba(232,69,42,0.3);
+      color: var(--cream);
+      padding: 16px 20px;
+      border-radius: 2px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .form-success.visible { display: block; }
     /* ---- RESPONSIVE ---- */
     @media (max-width: 768px) {
       nav { padding: 16px 24px; }
@@ -487,7 +580,7 @@
       .episodes { padding: 60px 24px 80px; }
       .episodes-grid { grid-template-columns: 1fr; }
       .listen { padding: 80px 24px; }
-      footer { padding: 32px 24px; flex-direction: column; gap: 16px; text-align: center; }
+      .contact { grid-template-columns: 1fr; padding: 80px 24px; gap: 48px; }
     }
   </style>
 </head>
@@ -502,6 +595,8 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#episodes">Episodes</a></li>
+      <li><a href="https://juliannavitolo.substack.com/?utm_source=substack&utm_medium=web&utm_campaign=substack_profile" target="_blank">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
       <li><a href="#listen" class="nav-cta">Listen Now</a></li>
     </ul>
   </nav>
@@ -538,11 +633,9 @@
     <div class="reveal">
       <p class="section-label">The Show</p>
       <h2 class="about-heading">Built for founders<br>who <em>do the work</em></h2>
-    </div>
-    <div class="reveal" style="transition-delay: 0.15s">
-      <p class="about-body">Sweat Equity chronicles the founder journey in all its messy, unglamorous, and ultimately triumphant reality. Through candid one-on-one interviews, we dig into the decisions, doubts, and defining moments that shaped the companies you admire today.</p>
+      <p class="about-body" style="margin-top: 24px;">Sweat Equity chronicles the founder journey in all its messy, unglamorous, and ultimately triumphant reality. Through candid one-on-one interviews, we dig into the decisions, doubts, and defining moments that shaped the companies you admire today.</p>
       <p class="about-body" style="margin-top: 20px;">No hype. No highlight reel. Just the honest story of what it actually takes.</p>
-      <div class="about-stats">
+      <div class="about-stats" style="margin-top: 40px;">
         <div class="stat-box">
           <div class="stat-num">10+</div>
           <div class="stat-label">Episodes</div>
@@ -625,6 +718,38 @@
     </div>
   </section>
 
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact">
+      <div class="reveal">
+        <p class="section-label">Get In Touch</p>
+        <h2 class="contact-heading">Let's <em>connect</em></h2>
+        <p class="contact-body">Have a guest suggestion, partnership idea, or just want to say hi? Drop a message and we'll get back to you.</p>
+        <a href="mailto:sweat.equity.jv@gmail.com" class="contact-email-link">
+          sweat.equity.jv@gmail.com →
+        </a>
+      </div>
+      <div class="contact-form reveal" style="transition-delay:0.15s">
+        <div class="form-success" id="formSuccess">
+          ✓ &nbsp;Message sent! We'll be in touch soon.
+        </div>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="What's on your mind?" required></textarea>
+        </div>
+        <button class="form-submit" id="formSubmit" type="button">Send Message</button>
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer>
     <div class="footer-brand"><span>sweat</span> equity podcast</div>
@@ -642,6 +767,44 @@
       });
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Contact form — submits via Formspree to sweat.equity.jv@gmail.com
+    document.getElementById('formSubmit').addEventListener('click', async () => {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if (!name || !email || !message) {
+        alert('Please fill out all fields.');
+        return;
+      }
+      const btn = document.getElementById('formSubmit');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      try {
+        const res = await fetch('https://formspree.io/f/sweat.equity.jv@gmail.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ name, email, message })
+        });
+        if (res.ok) {
+          document.getElementById('formSuccess').classList.add('visible');
+          document.getElementById('name').value = '';
+          document.getElementById('email').value = '';
+          document.getElementById('message').value = '';
+          btn.textContent = 'Sent!';
+        } else {
+          // Fallback: open mailto
+          window.location.href = `mailto:sweat.equity.jv@gmail.com?subject=Message from ${encodeURIComponent(name)}&body=${encodeURIComponent(message)}%0A%0AFrom: ${encodeURIComponent(email)}`;
+          btn.disabled = false;
+          btn.textContent = 'Send Message';
+        }
+      } catch {
+        // Fallback: open mailto
+        window.location.href = `mailto:sweat.equity.jv@gmail.com?subject=Message from ${encodeURIComponent(name)}&body=${encodeURIComponent(message)}%0A%0AFrom: ${encodeURIComponent(email)}`;
+        btn.disabled = false;
+        btn.textContent = 'Send Message';
+      }
+    });
   </script>
 </body>
 </html>
