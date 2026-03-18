@@ -111,14 +111,23 @@
       opacity: 0.3;
       pointer-events: none;
     }
-    .hero-watermark {
+    .hero-circle {
       position: absolute;
       width: 520px; height: 520px;
       border-radius: 50%;
+      background: var(--red);
       right: -60px; top: 50%;
       transform: translateY(-50%);
-      object-fit: cover;
-      opacity: 1;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+    .hero-circle-2 {
+      position: absolute;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      border: 1px solid rgba(232, 69, 42, 0.2);
+      right: 140px; top: 50%;
+      transform: translateY(-50%);
       pointer-events: none;
     }
     .hero-eyebrow {
@@ -614,7 +623,8 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg"></div>
-    <img src="images/julianna-vitolo.jpeg" alt="" class="hero-watermark">
+    <div class="hero-circle"></div>
+    <div class="hero-circle-2"></div>
     <p class="hero-eyebrow">The Founder Journey Podcast</p>
     <h1 class="hero-headline">
       <span class="line-red">sweat</span>
